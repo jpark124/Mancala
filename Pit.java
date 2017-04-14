@@ -73,4 +73,5 @@ public class Pit implements Icon {
 		return height;
 	}
 
+	
 }
