@@ -72,6 +72,5 @@ public class Pit implements Icon {
 	public int getIconHeight() {
 		return height;
 	}
-
 	
 }
