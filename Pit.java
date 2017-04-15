@@ -1,3 +1,4 @@
+package mancala;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -8,7 +9,7 @@ import javax.swing.*;
 /*
  * The pits on the Mancala board
  */
-public class Pit implements Icon {
+public class Pit {
 
 	private int width;
 	private int height;
@@ -52,25 +53,10 @@ public class Pit implements Icon {
 	/*
 	 * Draws a Pit for MancalaBoard
 	 */
-	public void paintIcon(Component c, Graphics g, int x, int y) {
-		Graphics2D g2 = (Graphics2D) g;
+	public void draw(Graphics2D g2)
+	{
 		Ellipse2D.Double pit = new Ellipse2D.Double(theX, theY, width, height);
 		g2.setColor(Color.BLACK);
 		g2.fill(pit);
 	}
-
-	/*
-	 * Returns the width of this Icon
-	 */
-	public int getIconWidth() {
-		return width;
-	}
-
-	/*
-	 * Returns the height of this Icon
-	 */
-	public int getIconHeight() {
-		return height;
-	}
-	
 }

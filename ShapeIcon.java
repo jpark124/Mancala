@@ -6,11 +6,15 @@ public class ShapeIcon implements Icon{
 	private int width;
 	private int height;
 	private GameBoardPanel board;
-	public ShapeIcon(GameBoardPanel board,int width, int height)
+	private ArrayList<Pit> pits;
+	private ArrayList<Pit> pointPits;
+	public ShapeIcon(GameBoardPanel board,ArrayList<Pit> pits, ArrayList<Pit> pointPits, int width, int height)
 	{
 		this.board = board;
 		this.width = width;
 		this.height = height;
+		this.pits = pits;
+		this.pointPits = pointPits;
 	}
 	public int getIconWidth()
 	{ 
@@ -24,5 +28,10 @@ public class ShapeIcon implements Icon{
 	{
 		Graphics2D g2 = (Graphics2D) g;
 		board.draw(g2);
+		for(Pit eachPit : pits)
+			eachPit.draw(g2);
+		for(Pit aPit: pointPits)
+			aPit.draw(g2);
+			
 	}
 	}
