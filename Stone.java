@@ -1,3 +1,4 @@
+package mancala;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -8,7 +9,7 @@ import javax.swing.*;
 /*
  * A stone on the Mancala board.
  */
-public class Stone implements Icon {
+public class Stone {
 
 	private int width;
 	private int theX;
@@ -28,29 +29,32 @@ public class Stone implements Icon {
 		this.theX = theX;
 		this.theY = theY;
 	}
-
-	/*
-	 * Draws a Stone for MancalaBoard
-	 */
-	public void paintIcon(Component c, Graphics g, int x, int y) {
+	
+	
+	public void draw(Graphics2D g)
+	{
 		Graphics2D g2 = (Graphics2D) g;
-		Ellipse2D.Double pit = new Ellipse2D.Double(theX, theY, width, width);
+		Ellipse2D.Double stone = new Ellipse2D.Double(theX, theY, width, width);
 		g2.setColor(Color.BLACK);
-		g2.fill(pit);
+		g2.fill(stone);
 	}
 
 	/*
 	 * Returns the width of this Icon
 	 */
-	public int getIconWidth() {
+	public int getIconWidth()
+	{
 		return width;
 	}
 
 	/*
 	 * Returns the height of this Icon
 	 */
-	public int getIconHeight() {
+	public int getIconHeight() 
+	{
 		return width;
 	}
+	
+	
 
 }
