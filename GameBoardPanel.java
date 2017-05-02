@@ -1,10 +1,13 @@
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.geom.*;
-import java.util.ArrayList;
-import javax.swing.event.ChangeListener;
 
-public class GameBoardPanel{
+import javax.swing.JComponent;
+
+public class GameBoardPanel extends JComponent {
 
 	protected int x;
 	protected int y;
@@ -20,6 +23,14 @@ public class GameBoardPanel{
 		this.height = height;
 		pits = new Pit[12];
 		pointPits = new Pit[2];
+		
+		addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println(e.getX());
+
+			}
+		});
 
 	}
 
@@ -53,5 +64,14 @@ public class GameBoardPanel{
 		g2.fill(rect);
 	}
 
+	public boolean canMakeMove(int i) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void makeMove(int i) {
+		// TODO Auto-generated method stub
+
+	}
 
 }

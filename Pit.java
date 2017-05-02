@@ -3,6 +3,9 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 
@@ -11,7 +14,7 @@ import javax.swing.*;
 /*
  * The pits on the Mancala board
  */
-public class Pit {
+public class Pit extends JComponent {
 
 	protected int width;
 	protected int height;
@@ -41,7 +44,6 @@ public class Pit {
 			width += 10;
 			height += 10;
 		}
-
 	}
 
 	/*

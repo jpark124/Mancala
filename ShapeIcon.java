@@ -1,8 +1,10 @@
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.*;
 import javax.swing.*;
 
-public class ShapeIcon implements Icon {
+public class ShapeIcon extends JComponent implements Icon {
 	private int width;
 	private int height;
 	private GameBoardPanel board;
@@ -15,6 +17,13 @@ public class ShapeIcon implements Icon {
 		this.height = height;
 		this.pits = pits;
 		this.pointPits = pointPits;
+		addMouseListener(new MouseAdapter() {
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				System.out.println(e.getX());
+
+			}
+		});
 	}
 
 	public int getIconWidth() {
