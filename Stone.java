@@ -1,4 +1,3 @@
-package mancala;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Graphics;
@@ -29,10 +28,8 @@ public class Stone {
 		this.theX = theX;
 		this.theY = theY;
 	}
-	
-	
-	public void draw(Graphics2D g)
-	{
+
+	public void draw(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D) g;
 		Ellipse2D.Double stone = new Ellipse2D.Double(theX, theY, width, width);
 		g2.setColor(Color.BLACK);
@@ -42,19 +39,15 @@ public class Stone {
 	/*
 	 * Returns the width of this Icon
 	 */
-	public int getIconWidth()
-	{
+	public int getIconWidth() {
 		return width;
 	}
 
 	/*
 	 * Returns the height of this Icon
 	 */
-	public int getIconHeight() 
-	{
+	public int getIconHeight() {
 		return width;
 	}
-	
-	
 
 }
