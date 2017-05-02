@@ -34,7 +34,7 @@ public class Pit {
 		this.height = width;
 		this.theX = theX;
 		this.theY = theY;
-		stones = new Stone[numberOfStones];
+		stones = new Stone[20];
 		
 		// add number of stones that users enter
 		for(int i = 0; i < numberOfStones; i++)
@@ -62,7 +62,7 @@ public class Pit {
 		this.height = height;
 		this.theX = theX;
 		this.theY = theY;
-//		stones = new Stone[numberOfStones];
+		stones = new Stone[numberOfStones];
 	}
 
 	/*
@@ -74,19 +74,21 @@ public class Pit {
 		Graphics2D g2 = (Graphics2D) g;
 		Ellipse2D.Double pit = new Ellipse2D.Double(theX, theY, width, height);
 		// if it's point pits, where there are no pits inside.
-		if(stones == null)
-			g2.draw(pit);		
-		else
-			{
-				for(int i = 1; i <= stones.length; i++)
+				boolean isNormalPit = false;
+				for(int i = 0; i < stones.length-1; i++)
 				{
-					Ellipse2D.Double stoneToDraw = new Ellipse2D.Double(50 + theX, theY + i * width/6, width/10, height/10);
-					g2.draw(pit);
-					g2.setColor(Color.BLACK);
-					g2.fill(stoneToDraw);
-					g2.draw(stoneToDraw);				
+					if(stones[i] != null)
+					{
+						isNormalPit = true;
+						Ellipse2D.Double stoneToDraw = new Ellipse2D.Double(30 + theX, theY + i * width/6, width/10, height/10);
+						g2.draw(pit);
+						g2.setColor(Color.BLACK);
+						g2.fill(stoneToDraw);
+						g2.draw(stoneToDraw);
+					}
 				}
-			}
+				if(!isNormalPit)
+					g2.draw(pit);
 	}
 	/**
 	 * Get number of stones in a pit
@@ -94,7 +96,13 @@ public class Pit {
 	 */
 	public int getNumOfStones()
 	{
-		return stones.length;
+		int count = 0;
+		for(int i = 0; i < stones.length; i++)
+		{
+			if(stones[i] != null)
+				count++;
+		}
+		return count;
 	}
 	
 	/**
@@ -107,7 +115,11 @@ public class Pit {
 		if(stones.length == 0)
 			System.out.println("It's an empty stone list");
 		else
-			stones[stones.length-1] = new Stone(20,20,20);
+		{
+			for(int i = this.getNumOfStones(); i >= 0; i--)
+				if(stones[i] == null)
+					stones[i] = new Stone(20,20,20);
+		}
 	}
 	
 	/**
@@ -116,7 +128,11 @@ public class Pit {
 	 */
 	public boolean isEmpty()
 	{
-		return stones.length == 0;
+		boolean empty = true;
+		for(int i = 0; i < stones.length - 1; i++)
+			if(stones[i] != null)
+				empty = false;
+		return empty;
 	}
 	
 	/**
