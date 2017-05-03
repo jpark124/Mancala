@@ -1,5 +1,3 @@
-package mancala;
-
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -44,7 +42,7 @@ public class MancalaView {
 		frame.add(input);
 
 		JLabel l2 = new JLabel("Pick a layout.");
-		
+
 		l2.setPreferredSize(new Dimension(100, 50));
 		frame.add(l2);
 		JButton b1 = new JButton("Layout 1");

@@ -5,8 +5,8 @@ import java.awt.geom.Rectangle2D;
 
 public class SquarePit extends Pit {
 
-	public SquarePit(int width, int theX, int theY, int numberOfStones) {
-		super(width, theX, theY, numberOfStones);
+	public SquarePit(int width, int theX, int theY, int numberOfStones, String player) {
+		super(width, theX, theY, numberOfStones, player);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -14,6 +14,8 @@ public class SquarePit extends Pit {
 		super(width, height, theX, theY, numberOfStones);
 		// stones = new Stone[numberOfStones];
 	}
+	
+
 
 	public void draw(Graphics2D g) {
 		Graphics2D g2 = (Graphics2D) g;
