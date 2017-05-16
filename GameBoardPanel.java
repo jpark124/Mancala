@@ -1,16 +1,26 @@
-package mancala;
 
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.geom.*;
 
+<<<<<<< HEAD
 import javax.swing.*;
 
 public class GameBoardPanel extends JLabel implements Icon {
 	protected MancalaModel model;
+=======
+import javax.swing.JComponent;
+
+public class GameBoardPanel extends JComponent {
+
+>>>>>>> origin/master
 	protected int x;
 	protected int y;
 	protected int width;
 	protected int height;
+<<<<<<< HEAD
 	private int prevCount;
 	private int prevIndex;
 	protected Pit[] pits;
@@ -24,12 +34,19 @@ public class GameBoardPanel extends JLabel implements Icon {
 	public GameBoardPanel(int x, int y, int width, int height, Color color) {
 		model = new MancalaModel();
 		this.color = color;
+=======
+	private Pit[] pits;
+	private Pit[] pointPits;
+
+	public GameBoardPanel(int x, int y, int width, int height) {
+>>>>>>> origin/master
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
 		pits = new Pit[12];
 		pointPits = new Pit[2];
+<<<<<<< HEAD
 		gameOver = false;
 		undoable = false;
 		oneSideIsEmpty = false;
@@ -375,3 +392,49 @@ public class GameBoardPanel extends JLabel implements Icon {
 		
 
 }
+=======
+
+	}
+
+	public Pit[] getPits() {
+		return pits;
+	}
+
+	public Pit[] getPointPits() {
+		return pointPits;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void draw(Graphics2D g2) {
+		Rectangle2D rect = new Rectangle2D.Double(x, y, width, height);
+		g2.setColor(Color.DARK_GRAY);
+		g2.fill(rect);
+	}
+
+	public boolean canMakeMove(int i) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public void makeMove(int i) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
+>>>>>>> origin/master
